@@ -136,3 +136,6 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+high_frequency_data_merged
+high_frequency_datasets_csv/*
