@@ -51,14 +51,14 @@ def gen_training_matrix(directory_path, output_file, cols_to_ignore):
 		try:
 			name, state, _ = x[:-4].split('-')
 		except:
-			print ('Wrong file name', x)
+			print ('Wrong   name', x)
 			sys.exit(-1)
 		if state.lower() == 'concentrating':
 			state = 2.
 		elif state.lower() == 'neutral':
 			state = 1.
 		elif state.lower() == 'relaxed':
-			state = 0.
+			state = 0.   
 		else:
 			print ('Wrong file name', x)
 			sys.exit(-1)

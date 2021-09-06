@@ -844,6 +844,7 @@ def generate_feature_vectors_from_samples(file_path, nsamples, period,
 		# If an exception is raised or the slice is not as long as we expected, 
 		# return the current data available
 		try:
+			print("the matrix", matrix)
 			s, dur = get_time_slice(matrix, start = t, period = period)
 			if cols_to_ignore is not None:
 				s = np.delete(s, cols_to_ignore, axis = 1)
@@ -883,7 +884,7 @@ def generate_feature_vectors_from_samples(file_path, nsamples, period,
 		if state is not None:
 			 # Remove the label (last column) of previous vector
 			previous_vector = previous_vector[:-1] 
-
+	print("the headers:", headers)
 	feat_names = ["lag1_" + s for s in headers[:-1]] + headers
 	
 	if remove_redundant:
