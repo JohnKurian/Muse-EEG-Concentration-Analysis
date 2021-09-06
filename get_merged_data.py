@@ -1,16 +1,19 @@
 #open all zips and rename the csvs
 import os
 import zipfile
+import pandas as pd
 
 print("merging..")
 for filename in os.listdir("high_frequency_datasets"):
+    print(filename)
+
+    if (filename[0] is not "."):
+        zipdata = zipfile.ZipFile('high_frequency_datasets/'+filename)
+        zipinfos = zipdata.infolist()
     
-    zipdata = zipfile.ZipFile('high_frequency_datasets/'+filename)
-    zipinfos = zipdata.infolist()
- 
-    for zipinfo in zipinfos:
-        zipinfo.filename = 'high_frequency_datasets_csv/' + filename.split(".")[0] + ".csv"
-        zipdata.extract(zipinfo)
+        for zipinfo in zipinfos:
+            zipinfo.filename = 'high_frequency_datasets_csv/' + filename.split(".")[0] + ".csv"
+            zipdata.extract(zipinfo)
 
 #merge all csvs into one 
 dfs = []
