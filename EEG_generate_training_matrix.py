@@ -37,6 +37,11 @@ def gen_training_matrix(directory_path, output_file, cols_to_ignore):
 	
 	# Initialise return matrix
 	FINAL_MATRIX = None
+
+	# activities = ['relaxedeyesopen', 'trainofthought', 'lostinmigration',
+    #    'memorymatrix', 'highwayhazards', 'listeningtomusic', 'ebbnflow', 'clashroyalbattle', 'ankigerman']
+	
+	activities = ['relaxedeyesopen', 'lostinmigration']
 	
 	for x in os.listdir(directory_path):
 
@@ -60,8 +65,11 @@ def gen_training_matrix(directory_path, output_file, cols_to_ignore):
 		elif state.lower() == 'relaxed':
 			state = 0.   
 		else:
-			print ('Wrong file name', x)
-			sys.exit(-1)
+			try: 
+				state = activities.index(state)
+			except ValueError:
+				print ('Wrong file name', x)
+				sys.exit(-1)
 			
 		print ('Using file', x)
 		full_file_path = directory_path  +   '/'   + x

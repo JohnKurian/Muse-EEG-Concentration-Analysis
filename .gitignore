@@ -139,3 +139,27 @@ cython_debug/
 
 high_frequency_data_merged.csv
 high_frequency_datasets_csv/*
+dataset/
+*.csv
+
+*.pyc
+#*.csv
+.ipynb_checkpoints
+
+build/
+dist/
+*.egg-info/
+*.egg
+*.py[cod]
+__pycache__/
+*.so
+*~
+
+# due to using tox and pytest
+.tox
+.cache
+.vs
+env/
+
+muselsl/docs
+model.joblib
