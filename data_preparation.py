@@ -62,11 +62,14 @@ for filename in os.listdir("high_frequency_datasets_csv"):
 
 df = pd.concat(dfs, axis=0)
 
-
 # In[ ]:
 
 
 df.loc[df.activity == "eyesopenrelaxed", "activity"] = "relaxedeyesopen"
+
+print("creating high_frequency_datasets_merged.csv...")
+df.to_csv("high_frequency_datasets_merged.csv", index=False)
+
 
 
 # In[ ]:
